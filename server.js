@@ -5,9 +5,9 @@ const axios = require('axios');
 const app = express();
 app.use(bodyParser.json());
 
-const JIRA_BASE_URL = 'https://your-jira-server.com'; // change this
-const JIRA_USER = 'admin'; // Jira user with issue edit access
-const JIRA_API_TOKEN = 'your_admin_password_or_token'; // For Jira Server, use password or token
+const JIRA_BASE_URL = 'https://jira.futureplayport.com/'; // TODO: Replace with your Jira Server URL
+const JIRA_USER = 'georgi.boychev'; // TODO: Replace with a Jira user that has permission to edit issues
+const JIRA_API_TOKEN = 'Manager123'; // TODO: Replace with the user's password or API token
 
 const AUTH = {
   auth: {
@@ -16,7 +16,7 @@ const AUTH = {
   }
 };
 
-const CUSTOM_FIELD_ID = 'customfield_12345'; // Replace with your actual field ID
+const CUSTOM_FIELD_ID = 'customfield_10202'; // TODO: Replace with your actual custom field ID
 
 app.post('/jira-comment-listener', async (req, res) => {
   const payload = req.body;
@@ -55,4 +55,6 @@ app.post('/jira-comment-listener', async (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`🚀 Listening on https://jira-comment-mention-listener.onrender.com`));
+
 app.listen(PORT, () => console.log(`🚀 Listening on port ${PORT}`));
